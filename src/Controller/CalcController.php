@@ -11,18 +11,16 @@
 
    public function calc()
    {
-     $this->request->data('calc');
+     $this->request->data;
+     $c_type = $this->request->data('calc_type');
+     $this->set('type',$c_type);
 
-      if ($this->request->is('calc_type' === "0")) {
+     $num_a = $this->request->data('number_a');
+     $num_b = $this->request->data('number_b');
+     $this->set('A',$num_a);
+     $this->set('B',$num_b);
 
-             echo number_a + number_b ;
-         } else if('calc_type' === "2"){
-           echo number_a - number_b;
-         } else if('calc_type' === "3"){
-           echo number_a * number_b;
-         } else if('calc_type' === "4"){
-          echo  number_a / number_b;
-        }
+     debug($this->request->data);
 
    }
  }

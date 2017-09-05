@@ -13,9 +13,19 @@
 
   <p>値を入力してください</p>
 
-  <?= $this->Form->input('number_a'); ?>
-  <?= $this->Form->input('number_b'); ?>
-  <?= $this->Form->button('Add'); ?>
+  <?= $this->Form->input('number_a',['label' => '値１']); ?>
+  <?= $this->Form->input('number_b',['label' => '値２']); ?>
+  <?= $this->Form->button('calc'); ?>
 <?= $this->Form->end(); ?>
 
-答えは<?php  ?> です。
+  答えは
+  <?php if(($type) === "0"): ?>
+        <?= $A + $B ;?>
+      <?php elseif(($type) === "1"): ?>
+        <?= $A - $B ;?>
+      <?php elseif(($type) === "2"): ?>
+        <?= $A * $B ;?>
+      <?php elseif(($type) === "3"): ?>
+        <?= $A / $B ;?>
+      <?php endif; ?>
+  です。
